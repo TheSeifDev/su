@@ -1,14 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
-import { Bell, Search, User, LogOut, Settings, ChevronDown, Command, Home, ChevronRight } from 'lucide-react'
+import React from 'react'
+import { Bell, Search, Command, Home, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { cn } from '@/lib/utils'
 import MobileNav from './MobileNav'
+import { SignedIn, UserButton } from '@clerk/nextjs'
 
 const Navbar = () => {
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const pathname = usePathname();
   const pathSegments = pathname?.split('/').filter((path) => path !== '') || [];
 
@@ -71,7 +70,12 @@ const Navbar = () => {
         <div className="h-5 w-px bg-white/10"></div>
 
         {/* Profile */}
-        <div className="relative">
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+
+        {/*
+                <div className="relative">
           <button
             onClick={() => setIsProfileOpen(!isProfileOpen)}
             className={cn(
@@ -105,8 +109,9 @@ const Navbar = () => {
             </>
           )}
         </div>
+        */}
       </div>
-      
+
     </nav>
   )
 }
