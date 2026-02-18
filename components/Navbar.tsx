@@ -10,15 +10,12 @@ import MobileNav from './MobileNav'
 const Navbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const pathname = usePathname();
-  const pathSegments = pathname.split('/').filter((path) => path !== '');
+  const pathSegments = pathname?.split('/').filter((path) => path !== '') || [];
 
   return (
     <nav className="flex w-full items-center justify-between bg-zinc-950/70 backdrop-blur-xl border-b border-white/5 px-4 sm:px-6 py-3 sticky top-0 z-50">
       <div className="flex items-center gap-4">
-        {/* Mobile Hamburger Trigger */}
         <MobileNav />
-
-        {/* Dynamic Breadcrumbs (Hidden on very small screens) */}
         <div className="hidden sm:flex items-center gap-2 text-sm text-zinc-400">
           <Link href="/" className="hover:text-white transition-colors">
             <Home size={16} />
@@ -82,7 +79,7 @@ const Navbar = () => {
               isProfileOpen ? "bg-white/10 border-white/10" : "bg-transparent border-transparent hover:bg-white/5"
             )}
           >
-            <div className="h-8 w-8 rounded-full bg-linear-to-tr from-blue-500 to-indigo-500 p-[1.5px]">
+            <div className="h-8 w-8 rounded-full p-[1.5px] bg-linear-to-tr from-blue-500 to-indigo-500">
               <div className="h-full w-full rounded-full bg-zinc-950 flex items-center justify-center overflow-hidden">
                 <User size={16} className="text-white" />
               </div>
