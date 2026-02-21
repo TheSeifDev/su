@@ -3,18 +3,21 @@
 import React, { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { meetingCards } from '@/constants/meetingCards'
-// import MeetingModal from './MeetingModal'
+import MeetingModal from './MeetingModal'
+import { Video } from 'lucide-react'
 
 const MeetingTypeList = () => {
   const [meetingState, setMeetingState] = useState<string | undefined>(undefined);
 
-  // const createMeeting = () => {
+  const createMeeting = () => {
+    console.log("Creating instant meeting...")
+  }
 
-  // }
+
 
   return (
     <>
-      <section className='grid grid-cols-2 gap-5 lg:grid-cols-4 z-10'>
+      <section className='z-10 grid grid-cols-2 gap-5 lg:grid-cols-4'>
         {meetingCards.map((card, index) => {
           const IconComponent = card.icon;
 
@@ -46,20 +49,20 @@ const MeetingTypeList = () => {
             </div>
           )
         })}
-        {/* <MeetingModal
-          isOpen={meetingState === 'isInstantMeeting'}
-          onClose={() => setMeetingState(undefined)}
-          title="Instant Meeting Modal"
-          className="text-center"
-          buttonText="Start Meeting"
-          handleClick={createMeeting}
-        /> */}
       </section>
-      {meetingState && (
-        <div className="text-center text-sm text-zinc-400 p-4 bg-white/5 rounded-xl border border-white/10 w-max mx-auto mt-4 backdrop-blur-md z-10 transition-all">
-          Active Modal State: <span className="text-blue-400 font-bold">{meetingState}</span>
-        </div>
-      )}
+
+      {/* 1. INSTANT MEETING MODAL */}
+      <MeetingModal
+        isOpen={meetingState === 'isInstantMeeting'}
+        onClose={() => setMeetingState(undefined)}
+        title="Start an Instant Meeting"
+        description="Instantly spin up a room and invite your team to join."
+        buttonText="Start Meeting"
+        headerIcon={<Video className="size-8" />}
+        buttonIcon={<Video className="size-5" />}
+        secondaryButtonText="Cancel"
+        handleClick={createMeeting}
+      />
     </>
   )
 }
