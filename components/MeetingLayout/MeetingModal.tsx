@@ -20,17 +20,14 @@ interface MeetingModalProps {
   className?: string;
   children?: React.ReactNode;
 
-  // Primary Action
   buttonText: string;
   handleClick: () => void;
   buttonIcon?: React.ReactNode;
   isLoading?: boolean;
 
-  // Secondary Action (Optional)
   secondaryButtonText?: string;
   onSecondaryClick?: () => void;
 
-  // Visuals (Optional)
   image?: string;
   headerIcon?: React.ReactNode;
 }
@@ -46,6 +43,8 @@ const MeetingModal = ({
   handleClick,
   buttonIcon,
   isLoading = false,
+  secondaryButtonText,
+  onSecondaryClick,
   image,
   headerIcon,
 }: MeetingModalProps) => {
@@ -94,6 +93,18 @@ const MeetingModal = ({
             </div>
           )}
           <DialogFooter className="mt-2 flex-col gap-3 sm:flex-row sm:justify-end sm:space-x-0">
+            {secondaryButtonText && (
+              <button
+                onClick={onSecondaryClick ?? onClose}
+                className={cn(
+                  "flex w-full flex-1 items-center justify-center rounded-xl px-5 py-3 text-base font-semibold transition-all duration-300 ease-out",
+                  "bg-white/5 border border-white/10 text-zinc-300 hover:bg-white/10 hover:text-white active:scale-[0.98]",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                )}
+              >
+                {secondaryButtonText}
+              </button>
+            )}
             <button
               disabled={isLoading}
               onClick={handleClick}
@@ -117,7 +128,6 @@ const MeetingModal = ({
                 </>
               )}
             </button>
-
           </DialogFooter>
         </div>
       </DialogContent>

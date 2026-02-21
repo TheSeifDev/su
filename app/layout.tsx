@@ -4,6 +4,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import "./globals.css";
 
+import { Toaster } from "@/components/ui/sonner"
+
+
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
@@ -50,11 +53,11 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        {/* التعديل هنا: تمت إزالة flex items-center justify-center ليعود الموقع كاملاً */}
         <body
           className={`${montserrat.variable} antialiased bg-zinc-950 text-white`}
         >
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
