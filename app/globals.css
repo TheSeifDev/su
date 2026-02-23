@@ -7,6 +7,182 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* =========================================
+   React DatePicker Modern Theme Override 
+   ========================================= */
+
+/* Ensure the wrapper takes full width */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+/* Main Calendar Container (Glassy & Dark) */
+.react-datepicker {
+  background-color: rgba(
+    15,
+    23,
+    42,
+    0.8
+  ) !important; /* Dark slate background */
+  backdrop-filter: blur(16px) !important; /* Glassmorphism */
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.75rem !important; /* rounded-xl */
+  color: white !important;
+  font-family: inherit !important;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.5),
+    0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Header (Month/Year display) */
+.react-datepicker__header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-top: 1rem !important;
+}
+
+/* Month and Year Text */
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+}
+
+/* Days of the week (Mo, Tu, We) */
+.react-datepicker__day-name {
+  color: #a1a1aa !important; /* text-zinc-400 */
+  font-weight: 500 !important;
+  margin: 0.25rem !important;
+}
+
+/* Individual Days */
+.react-datepicker__day,
+.react-datepicker__time-name {
+  color: #e4e4e7 !important; /* text-zinc-200 */
+  margin: 0.25rem !important;
+  border-radius: 0.5rem !important; /* rounded-lg */
+  transition: all 0.2s ease-out !important;
+}
+
+/* Hovering over days */
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Selected Day (Blue accent) */
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__year-text--selected {
+  background-color: #2563eb !important; /* bg-blue-600 */
+  color: white !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39) !important; /* Blue glow */
+}
+
+/* Keyboard Navigation Focus */
+.react-datepicker__day--keyboard-selected {
+  background-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Time Picker Container */
+.react-datepicker__time-container {
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time {
+  background-color: transparent !important;
+}
+
+/* Time List Items */
+.react-datepicker__time-list-item {
+  color: #e4e4e7 !important;
+  transition: all 0.2s ease-out !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Hovering over time items */
+.react-datepicker__time-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Selected Time */
+.react-datepicker__time-list-item--selected {
+  background-color: #2563eb !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+/* Hide the ugly default triangle/arrow on the popup */
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle,
+.react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle {
+  display: none !important;
+}
+
+/* Previous/Next Month Arrows */
+.react-datepicker__navigation-icon::before {
+  border-color: #a1a1aa !important; /* text-zinc-400 */
+  transition: border-color 0.2s ease-out !important;
+}
+
+.react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: white !important;
+}
+
+/* =========================================
+   React DatePicker Time Scrollbar 
+   ========================================= */
+
+/* Firefox support */
+.react-datepicker__time-list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/* Chrome, Edge, and Safari support */
+.react-datepicker__time-list::-webkit-scrollbar {
+  width: 6px !important; /* Nice and thin */
+}
+
+/* The track (background of the scrollbar) */
+.react-datepicker__time-list::-webkit-scrollbar-track {
+  background: transparent !important; /* Keep the glass effect clean */
+  margin-top: 4px; /* Slight padding from top/bottom edges */
+  margin-bottom: 4px;
+}
+
+/* The scroll thumb (the part you drag) */
+.react-datepicker__time-list::-webkit-scrollbar-thumb {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.15
+  ) !important; /* Subtle white/zinc */
+  border-radius: 9999px !important; /* Fully rounded pills */
+  transition: background-color 0.2s ease-out;
+}
+
+/* Hover state for the thumb */
+.react-datepicker__time-list::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.25
+  ) !important; /* Brightens up on hover */
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
