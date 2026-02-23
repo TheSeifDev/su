@@ -1,6 +1,16 @@
 import React, { ReactNode } from 'react'
+
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Edux Platform",
+  description: "Video calling app for universitys",
+  // icons:{
+  //   icon= '/'
+  // }
+};
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (

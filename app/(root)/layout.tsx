@@ -1,7 +1,17 @@
-import StreamVideoProvider from '@/providers/StreamClientProvider'
 import React, { ReactNode } from 'react'
 
-const HomeLayout = ({ children }: { children: ReactNode }) => {
+import StreamVideoProvider from '@/providers/StreamClientProvider'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Edux Platform",
+  description: "Video calling app for universitys",
+  // icons:{
+  //   icon= '/'
+  // }
+};
+
+const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <main>
       <StreamVideoProvider>
@@ -11,4 +21,4 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   )
 }
 
-export default HomeLayout
+export default RootLayout  

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+
+import "@stream-io/video-react-sdk/dist/css/styles.css";
+
 import { dark } from "@clerk/themes";
 import "./globals.css";
 
@@ -15,7 +18,10 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Edux Platform",
-  description: "Secure login",
+  description: "Video calling app for universitys",
+  // icons:{
+  //   icon= '/'
+  // }
 };
 
 export default function RootLayout({
@@ -40,7 +46,7 @@ export default function RootLayout({
           card: "!bg-zinc-950 !border !border-white/10 !shadow-none !rounded-xl !p-6 md:!p-8 w-full max-w-md mx-auto",
           headerTitle: "!text-xl !font-semibold !text-white",
           headerSubtitle: "!text-zinc-500 !text-sm",
-          formButtonPrimary: 
+          formButtonPrimary:
             "!bg-white hover:!bg-zinc-200 !text-black !shadow-none !border-none !rounded-lg !text-sm !font-semibold !transition-all !duration-200",
           formFieldInput:
             "!bg-transparent !border !border-white/10 !text-white placeholder:!text-zinc-600 !rounded-lg focus:!border-white/30 focus:!bg-white/5 !transition-all !outline-none",
