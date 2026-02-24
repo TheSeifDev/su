@@ -27,3 +27,11 @@ export const sidebarLinks = [
     icon: User,
   },
 ];
+
+export const avatarImages = [
+  {icon: User},
+  {icon: User},
+  {icon: User},
+  {icon: User},
+  {icon: User},
+];
