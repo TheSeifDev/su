@@ -57,7 +57,7 @@ const Home = () => {
   ];
 
   return (
-    <section className='flex size-full flex-col gap-8'>
+    <section className='flex size-full flex-col gap-6'>
       {/* ==================== HERO SECTION ==================== */}
       <div className='relative w-full rounded-3xl border border-white/[0.08] overflow-hidden'>
         {/* Animated gradient background */}
@@ -66,7 +66,7 @@ const Home = () => {
         <div className="absolute -bottom-20 -left-20 size-60 rounded-full bg-indigo-500/15 blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-40 rounded-full bg-purple-500/10 blur-[60px] animate-pulse" style={{ animationDelay: '2s' }} />
 
-        <div className='relative flex flex-col gap-6 p-6 lg:p-8 backdrop-blur-sm'>
+        <div className='relative flex flex-col gap-6 p-6 lg:p-6 backdrop-blur-sm'>
           {/* Top row: Greeting + Badge */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="flex flex-col gap-1">

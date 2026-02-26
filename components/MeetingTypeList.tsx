@@ -169,12 +169,11 @@ const MeetingTypeList = () => {
               'group relative flex flex-col justify-between w-full rounded-2xl p-5 cursor-pointer transition-all duration-300 ease-out overflow-hidden',
               'bg-white/[0.03] border border-white/[0.08] backdrop-blur-md',
               'hover:-translate-y-1.5 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-black/30 hover:border-white/15',
-              'aspect-[4/3] xl:aspect-square'
+              'aspect-[3/2] xl:aspect-[16/13]'
             )}
           >
             {/* Gradient overlay on hover */}
             <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
             {/* Content */}
             <div className="relative flex flex-col gap-3">
               {/* Icon + Shortcut */}
