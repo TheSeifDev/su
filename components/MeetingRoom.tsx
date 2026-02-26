@@ -35,7 +35,7 @@ const MeetingRoom = () => {
 
   if (callingState !== CallingState.JOINED) {
     return (
-      <div className="flex h-screen w-full items-center justify-center bg-slate-950">
+      <div className="flex h-screen w-full items-center justify-center bg-zinc-950">
         <Loader2 className="size-10 animate-spin text-blue-500" />
       </div>
     )
@@ -54,32 +54,32 @@ const MeetingRoom = () => {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-slate-950 text-white">
+    <section className="relative h-screen w-full overflow-hidden bg-zinc-950 text-white">
       {/* Main Video Area */}
       <div className="relative flex size-full items-center justify-center p-2 sm:p-4 pb-28 sm:pb-32">
-        <div className="flex size-full max-w-350 items-center justify-center stream-video-rounded">
+        <div className="flex size-full max-w-[1400px] items-center justify-center">
           {callLayout}
         </div>
 
         {/* Floating Participants Panel (Responsive) */}
         <div className={cn(
-          'absolute z-40 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 backdrop-blur-2xl transition-all duration-300 ease-out shadow-2xl',
+          'absolute z-40 overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80 backdrop-blur-2xl transition-all duration-300 ease-out shadow-2xl',
           'max-sm:bottom-24 max-sm:left-2 max-sm:right-2 max-sm:top-2',
           'sm:right-6 sm:top-6 sm:bottom-32',
           showParticipants
-            ? 'w-full sm:w-100 translate-x-0 opacity-100'
+            ? 'w-full sm:w-[400px] translate-x-0 opacity-100'
             : 'w-0 translate-x-10 opacity-0 border-none sm:w-0'
         )}>
-          <div className="h-full w-full sm:w-100 ">
+          <div className="h-full w-full sm:w-[400px]">
             <CallParticipantsList onClose={() => setShowParticipants(false)} />
           </div>
         </div>
       </div>
 
       <div className={cn(
-        "fixed z-50 flex items-center justify-center gap-2 sm:gap-3 rounded-full border border-white/10 bg-slate-900/80 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] custom-stream-controls",
+        "fixed z-50 flex items-center justify-center gap-2 sm:gap-3 rounded-2xl border border-white/10 bg-zinc-900/80 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] custom-stream-controls",
         "bottom-4 left-2 right-2 px-4 py-3 flex-wrap",
-        "sm:bottom-8 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:px-6 sm:py-3 sm:flex-nowrap"
+        "sm:bottom-8 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:px-6 sm:py-3 sm:flex-nowrap sm:rounded-full"
       )}>
 
         <CallControls />
@@ -87,21 +87,21 @@ const MeetingRoom = () => {
         {/* Layout Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger className={cn(
-            'flex size-10 sm:size-12 items-center justify-center rounded-full transition-all duration-300 ease-out',
+            'flex size-10 sm:size-12 items-center justify-center rounded-full transition-all duration-200 ease-out',
             'bg-white/5 border border-white/10 text-zinc-300',
             'hover:bg-white/10 hover:text-white hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50'
           )}>
             <LayoutList size={20} className="text-white sm:size-5 size-4" />
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent className='border border-white/10 bg-slate-900/90 backdrop-blur-2xl text-white rounded-2xl shadow-2xl p-2 mb-4'>
+          <DropdownMenuContent className='border border-white/10 bg-zinc-900/95 backdrop-blur-2xl text-white rounded-2xl shadow-2xl p-2 mb-4'>
             {['Grid', 'Speaker-Left', 'Speaker-Right'].map((item, index) => (
               <div key={index}>
                 <DropdownMenuItem
                   className={cn(
                     'cursor-pointer rounded-xl px-4 py-2.5 text-sm font-medium transition-colors duration-200',
                     'hover:bg-white/10 hover:text-white text-zinc-300',
-                    layout === item.toLowerCase() && 'bg-blue-500 text-white hover:bg-blue-600'
+                    layout === item.toLowerCase() && 'bg-blue-600 text-white hover:bg-blue-500'
                   )}
                   onClick={() => {
                     setLayout(item.toLowerCase() as CallLayoutType)
@@ -119,7 +119,7 @@ const MeetingRoom = () => {
 
         {/* Stats Button */}
         <div className={cn(
-          'flex size-10 sm:size-12 items-center justify-center rounded-full transition-all duration-300 ease-out',
+          'flex size-10 sm:size-12 items-center justify-center rounded-full transition-all duration-200 ease-out',
           'bg-white/5 border border-white/10 text-zinc-300 hover:bg-white/10 hover:text-white hover:scale-105 [&>button]:p-0'
         )}>
           <CallStatsButton />
@@ -129,7 +129,7 @@ const MeetingRoom = () => {
         <button
           onClick={() => setShowParticipants((prev) => !prev)}
           className={cn(
-            'flex size-10 sm:size-12 items-center justify-center rounded-full transition-all duration-300 ease-out',
+            'flex size-10 sm:size-12 items-center justify-center rounded-full transition-all duration-200 ease-out',
             'border border-white/10',
             showParticipants
               ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_-3px_rgba(37,99,235,0.4)]'

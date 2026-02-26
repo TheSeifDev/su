@@ -34,7 +34,7 @@ const MobileNav = () => {
       {/* Backdrop */}
       <div
         className={cn(
-          "absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300",
+          "absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity duration-300",
           isOpen ? "opacity-100" : "opacity-0"
         )}
         onClick={() => setIsOpen(false)}
@@ -43,7 +43,7 @@ const MobileNav = () => {
       {/* Side Drawer */}
       <aside
         className={cn(
-          "absolute left-0 top-0 h-full w-70 bg-zinc-950 border-r border-white/10 p-6 shadow-2xl transition-transform duration-300 ease-in-out flex flex-col justify-between",
+          "absolute left-0 top-0 h-full w-72 bg-zinc-950 border-r border-white/[0.04] p-6 shadow-2xl shadow-black/50 transition-transform duration-300 ease-in-out flex flex-col justify-between",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
         role="dialog"
@@ -53,20 +53,23 @@ const MobileNav = () => {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="bg-blue-600 p-1.5 rounded-lg shadow-lg shadow-blue-500/20">
-                <Hexagon size={24} fill="currentColor" className="text-white" />
+              <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-2 rounded-xl shadow-lg shadow-blue-500/25">
+                <Hexagon size={22} fill="currentColor" className="text-white" />
               </div>
-              <h1 className="text-xl font-bold bg-linear-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+              <h1 className="text-xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
                 Edux
               </h1>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-zinc-400">
-              <X size={24} />
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-1.5 rounded-xl text-zinc-500 hover:text-white hover:bg-white/[0.06] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+            >
+              <X size={20} />
             </button>
           </div>
 
           {/* Links */}
-          <nav className="flex flex-col gap-2">
+          <nav className="flex flex-col gap-1">
             {sidebarLinks.map((link) => {
               const IconComponent = link.icon;
               const isActive = pathname === link.route || pathname.startsWith(`${link.route}/`);
@@ -77,22 +80,26 @@ const MobileNav = () => {
                   href={link.route}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    'flex items-center gap-3 rounded-xl p-4 transition-all duration-300',
+                    'flex items-center gap-3 rounded-xl p-3 transition-all duration-200 relative',
+                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50',
                     isActive
-                      ? 'bg-blue-500/10 border border-blue-500/20 text-blue-400'
-                      : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-blue-500/10 border border-blue-500/15 text-blue-400 shadow-sm shadow-blue-500/5'
+                      : 'text-zinc-500 hover:text-white hover:bg-white/[0.04]'
                   )}
                 >
-                  <IconComponent size={20} />
+                  <IconComponent size={18} />
                   <span className="text-sm font-medium">{link.label}</span>
+                  {isActive && (
+                    <div className="absolute right-3 size-1.5 rounded-full bg-blue-400 shadow-[0_0_6px_rgba(96,165,250,0.5)]" />
+                  )}
                 </Link>
               );
             })}
           </nav>
         </div>
 
-        <div className="mb-4 rounded-xl bg-white/5 p-4 border border-white/5">
-          <p className="text-xs text-zinc-500 text-center">© {new Date().getFullYear()} Edux</p>
+        <div className="mb-4 rounded-xl bg-white/[0.02] p-4 border border-white/[0.04]">
+          <p className="text-[10px] text-zinc-700 text-center font-medium tracking-wider uppercase">© {new Date().getFullYear()} Edux</p>
         </div>
       </aside>
     </div>
@@ -100,8 +107,11 @@ const MobileNav = () => {
 
   return (
     <section className="md:hidden">
-      <button onClick={() => setIsOpen(true)} className="p-2 text-zinc-400">
-        <Menu size={24} />
+      <button
+        onClick={() => setIsOpen(true)}
+        className="p-2 text-zinc-400 hover:text-white transition-colors duration-200 rounded-xl hover:bg-white/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+      >
+        <Menu size={22} />
       </button>
 
       {mounted && createPortal(portalContent, document.body)}

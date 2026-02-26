@@ -7,6 +7,23 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2563eb;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+
 /* =========================================
    React DatePicker Modern Theme Override 
    ========================================= */
@@ -18,16 +35,17 @@ body {
 
 /* Main Calendar Container (Glassy & Dark) */
 .react-datepicker {
-  background-color: rgba(
-    15,
-    23,
-    42,
-    0.8
-  ) !important; /* Dark slate background */
-  backdrop-filter: blur(16px) !important; /* Glassmorphism */
+  background-color: rgba(15,
+      23,
+      42,
+      0.8) !important;
+  /* Dark slate background */
+  backdrop-filter: blur(16px) !important;
+  /* Glassmorphism */
   -webkit-backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 0.75rem !important; /* rounded-xl */
+  border-radius: 0.75rem !important;
+  /* rounded-xl */
   color: white !important;
   font-family: inherit !important;
   box-shadow:
@@ -53,7 +71,8 @@ body {
 
 /* Days of the week (Mo, Tu, We) */
 .react-datepicker__day-name {
-  color: #a1a1aa !important; /* text-zinc-400 */
+  color: #a1a1aa !important;
+  /* text-zinc-400 */
   font-weight: 500 !important;
   margin: 0.25rem !important;
 }
@@ -61,9 +80,11 @@ body {
 /* Individual Days */
 .react-datepicker__day,
 .react-datepicker__time-name {
-  color: #e4e4e7 !important; /* text-zinc-200 */
+  color: #e4e4e7 !important;
+  /* text-zinc-200 */
   margin: 0.25rem !important;
-  border-radius: 0.5rem !important; /* rounded-lg */
+  border-radius: 0.5rem !important;
+  /* rounded-lg */
   transition: all 0.2s ease-out !important;
 }
 
@@ -82,10 +103,12 @@ body {
 .react-datepicker__month-text--selected,
 .react-datepicker__quarter-text--selected,
 .react-datepicker__year-text--selected {
-  background-color: #2563eb !important; /* bg-blue-600 */
+  background-color: #2563eb !important;
+  /* bg-blue-600 */
   color: white !important;
   font-weight: bold !important;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39) !important; /* Blue glow */
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39) !important;
+  /* Blue glow */
 }
 
 /* Keyboard Navigation Focus */
@@ -131,7 +154,8 @@ body {
 
 /* Previous/Next Month Arrows */
 .react-datepicker__navigation-icon::before {
-  border-color: #a1a1aa !important; /* text-zinc-400 */
+  border-color: #a1a1aa !important;
+  /* text-zinc-400 */
   transition: border-color 0.2s ease-out !important;
 }
 
@@ -151,36 +175,38 @@ body {
 
 /* Chrome, Edge, and Safari support */
 .react-datepicker__time-list::-webkit-scrollbar {
-  width: 6px !important; /* Nice and thin */
+  width: 6px !important;
+  /* Nice and thin */
 }
 
 /* The track (background of the scrollbar) */
 .react-datepicker__time-list::-webkit-scrollbar-track {
-  background: transparent !important; /* Keep the glass effect clean */
-  margin-top: 4px; /* Slight padding from top/bottom edges */
+  background: transparent !important;
+  /* Keep the glass effect clean */
+  margin-top: 4px;
+  /* Slight padding from top/bottom edges */
   margin-bottom: 4px;
 }
 
 /* The scroll thumb (the part you drag) */
 .react-datepicker__time-list::-webkit-scrollbar-thumb {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.15
-  ) !important; /* Subtle white/zinc */
-  border-radius: 9999px !important; /* Fully rounded pills */
+  background-color: rgba(255,
+      255,
+      255,
+      0.15) !important;
+  /* Subtle white/zinc */
+  border-radius: 9999px !important;
+  /* Fully rounded pills */
   transition: background-color 0.2s ease-out;
 }
 
 /* Hover state for the thumb */
 .react-datepicker__time-list::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.25
-  ) !important; /* Brightens up on hover */
+  background-color: rgba(255,
+      255,
+      255,
+      0.25) !important;
+  /* Brightens up on hover */
 }
 
 /* =========================================
@@ -192,7 +218,8 @@ body {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
-  gap: 0.75rem !important; /* matches tailwind gap-3 */
+  gap: 0.75rem !important;
+  /* matches tailwind gap-3 */
   display: flex !important;
   align-items: center !important;
 }
@@ -200,14 +227,19 @@ body {
 /* 2. Target ALL buttons (Mic, Camera, Share, Record, Reactions, etc.) - PERFECT CIRCLES */
 .custom-stream-controls .str-video__call-controls button,
 .custom-stream-controls .str-video__call-controls .str-video__call-controls__button {
-  background-color: rgba(255, 255, 255, 0.05) !important; /* bg-white/5 */
-  border: 1px solid rgba(255, 255, 255, 0.1) !important; /* border-white/10 */
-  border-radius: 9999px !important; /* rounded-full */
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  /* bg-white/5 */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  /* border-white/10 */
+  border-radius: 9999px !important;
+  /* rounded-full */
   backdrop-filter: blur(12px) !important;
   color: white !important;
   transition: all 0.3s ease-out !important;
-  width: 3rem !important;  /* 48px to match size-12 */
-  height: 3rem !important; /* 48px to match size-12 */
+  width: 3rem !important;
+  /* 48px to match size-12 */
+  height: 3rem !important;
+  /* 48px to match size-12 */
   padding: 0 !important;
   display: flex !important;
   align-items: center !important;
@@ -218,8 +250,10 @@ body {
 /* Hover Effect for all buttons */
 .custom-stream-controls .str-video__call-controls button:hover,
 .custom-stream-controls .str-video__call-controls .str-video__call-controls__button:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important; /* hover:bg-white/10 */
-  transform: scale(1.05) !important; /* hover:scale-105 */
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  /* hover:bg-white/10 */
+  transform: scale(1.05) !important;
+  /* hover:scale-105 */
 }
 
 /* Fix icon sizing inside the buttons */
@@ -232,9 +266,11 @@ body {
 .custom-stream-controls .str-video__call-controls button[data-active="true"],
 .custom-stream-controls .str-video__call-controls .str-video__call-controls__button--active,
 .custom-stream-controls .str-video__call-controls .str-video__toggle-screen-share-button--active {
-  background-color: rgba(220, 38, 38, 0.2) !important; /* red tint */
+  background-color: rgba(220, 38, 38, 0.2) !important;
+  /* red tint */
   border-color: rgba(220, 38, 38, 0.5) !important;
-  color: #f87171 !important; /* text-red-400 */
+  color: #f87171 !important;
+  /* text-red-400 */
 }
 
 /* 4. Responsive adjustments for mobile */
@@ -242,11 +278,13 @@ body {
   .custom-stream-controls .str-video__call-controls {
     gap: 0.5rem !important;
   }
-  
+
   .custom-stream-controls .str-video__call-controls button,
   .custom-stream-controls .str-video__call-controls .str-video__call-controls__button {
-    width: 2.5rem !important;  /* 40px to match size-10 */
-    height: 2.5rem !important; /* 40px to match size-10 */
+    width: 2.5rem !important;
+    /* 40px to match size-10 */
+    height: 2.5rem !important;
+    /* 40px to match size-10 */
   }
 
   .custom-stream-controls .str-video__call-controls button svg {
@@ -259,9 +297,9 @@ body {
    Fix Menu Toggle Button (Mic Dropdown)
    ========================================= */
 
-.custom-stream-controls 
-.str-video__menu-toggle-button {
-  position: static !important; /* يمنع انه يطفو فوق الأزرار */
+.custom-stream-controls .str-video__menu-toggle-button {
+  position: static !important;
+  /* يمنع انه يطفو فوق الأزرار */
   z-index: 1 !important;
 
   /* نفس ستايل الدايرة */
@@ -278,15 +316,13 @@ body {
 }
 
 /* Hover */
-.custom-stream-controls 
-.str-video__menu-toggle-button:hover {
+.custom-stream-controls .str-video__menu-toggle-button:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   transform: scale(1.05) !important;
 }
 
 /* Fix caret icon size */
-.custom-stream-controls 
-.str-video__menu-toggle-button .str-video__icon {
+.custom-stream-controls .str-video__menu-toggle-button .str-video__icon {
   width: 18px !important;
   height: 18px !important;
 }
@@ -296,21 +332,21 @@ body {
    ========================================= */
 
 /* خلي زرار الكاريت أصغر */
-.custom-stream-controls 
-.str-video__menu-toggle-button {
-  width: 2rem !important;   /* 32px */
+.custom-stream-controls .str-video__menu-toggle-button {
+  width: 2rem !important;
+  /* 32px */
   height: 2rem !important;
   min-width: 2rem !important;
   border-radius: 9999px !important;
-  background-color: rgba(255,255,255,0.08) !important;
-  border: 1px solid rgba(255,255,255,0.1) !important;
-  margin-left: -0.5rem !important; /* يخليه لازق جنب الأيقونة */
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-left: -0.5rem !important;
+  /* يخليه لازق جنب الأيقونة */
   z-index: 1 !important;
 }
 
 /* متخليش ياخد نفس مساحة زرار المايك */
-.custom-stream-controls 
-.str-video__call-controls__button.str-video__menu-toggle-button {
+.custom-stream-controls .str-video__call-controls__button.str-video__menu-toggle-button {
   flex: 0 0 auto !important;
   padding: 0 !important;
 }
@@ -319,20 +355,19 @@ body {
    Dropdown spacing fix (clean gap)
    ========================================= */
 
-.custom-stream-controls 
-.str-video__menu-toggle-button {
+.custom-stream-controls .str-video__menu-toggle-button {
   width: 2rem !important;
   height: 2rem !important;
   min-width: 2rem !important;
   border-radius: hidden;
-  background-color: hidden!important;
-  border: 1px solid rgba(255,255,255,0.1) !important;
+  background-color: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 
-  margin-left: 0.55rem !important; /* 👈 زودنا المسافة */
+  margin-left: 0.55rem !important;
+  /* 👈 زودنا المسافة */
 }
 
 /* لو عايزه على اليمين بدل الشمال */
-.custom-stream-controls 
-.str-video__menu-toggle-button--active {
+.custom-stream-controls .str-video__menu-toggle-button--active {
   margin-right: 0.75rem !important;
 }

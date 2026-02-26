@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Edux Platform",
+  title: "TADs Platform",
   description: "Video calling app for universitys",
   // icons:{
   //   icon= '/'

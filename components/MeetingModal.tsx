@@ -51,8 +51,8 @@ const MeetingModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className={cn(
-        "flex w-full max-w-130 flex-col gap-6 border border-white/10 bg-slate-950/20 p-6 sm:p-8",
-        "backdrop-blur-2xl text-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.5)] sm:rounded-3xl",
+        "flex w-full max-w-[520px] flex-col gap-6 border border-white/10 bg-zinc-950/90 p-6 sm:p-8",
+        "backdrop-blur-2xl text-white shadow-[0_0_60px_-15px_rgba(0,0,0,0.6)] rounded-2xl sm:rounded-2xl",
         className
       )}>
         <div className="flex flex-col gap-6">
@@ -68,7 +68,7 @@ const MeetingModal = ({
                   className="object-contain drop-shadow-xl"
                 />
               ) : (
-                <div className="flex size-16 items-center justify-center rounded-full bg-blue-500/10 text-blue-200 shadow-inner">
+                <div className="flex size-16 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-300 shadow-inner">
                   {headerIcon}
                 </div>
               )}
@@ -88,7 +88,7 @@ const MeetingModal = ({
           </DialogHeader>
 
           {children && (
-            <div className="py-2">
+            <div className="py-1">
               {children}
             </div>
           )}
@@ -97,7 +97,7 @@ const MeetingModal = ({
               <button
                 onClick={onSecondaryClick ?? onClose}
                 className={cn(
-                  "flex w-full flex-1 items-center justify-center rounded-xl px-5 py-3 text-base font-semibold transition-all duration-300 ease-out",
+                  "flex w-full flex-1 items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 ease-out",
                   "bg-white/5 border border-white/10 text-zinc-300 hover:bg-white/10 hover:text-white active:scale-[0.98]",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
                 )}
@@ -109,7 +109,7 @@ const MeetingModal = ({
               disabled={isLoading}
               onClick={handleClick}
               className={cn(
-                "group flex w-full flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-base font-semibold text-white transition-all duration-300 ease-out",
+                "group flex w-full flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all duration-200 ease-out",
                 "hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.98]",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50",
                 "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:hover:shadow-none"
@@ -120,7 +120,7 @@ const MeetingModal = ({
               ) : (
                 <>
                   {buttonIcon && (
-                    <span className="transition-transform duration-300 group-hover:scale-110">
+                    <span className="transition-transform duration-200 group-hover:scale-110">
                       {buttonIcon}
                     </span>
                   )}
