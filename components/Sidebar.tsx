@@ -39,7 +39,7 @@ const Sidebar = () => {
               "text-xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent whitespace-nowrap",
               isCollapsed ? "hidden" : "block"
             )}>
-              Edux
+              TADs
             </h1>
           </div>
 
@@ -102,7 +102,7 @@ const Sidebar = () => {
         "mb-6 rounded-xl bg-white/[0.02] p-3 border border-white/[0.04] overflow-hidden transition-all duration-300",
         isCollapsed ? "opacity-0 hidden" : "opacity-100 block"
       )}>
-        <p className="text-[10px] text-zinc-700 text-center font-medium tracking-wider uppercase">© {new Date().getFullYear()} Edux</p>
+        <p className="text-[10px] text-zinc-700 text-center font-medium tracking-wider uppercase">© {new Date().getFullYear()} TADs</p>
       </div>
 
     </section>

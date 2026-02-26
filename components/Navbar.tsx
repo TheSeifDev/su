@@ -53,7 +53,7 @@ const Navbar = () => {
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Search Bar */}
         <div className={cn(
-          "hidden lg:flex items-center gap-2.5 rounded-full px-4 py-2 border transition-all duration-300 ease-out",
+          "hidden lg:flex items-center gap-2.5 rounded-xl px-4 py-2 border transition-all duration-300 ease-out",
           isSearchFocused
             ? "w-80 bg-zinc-900/90 border-blue-500/30 shadow-lg shadow-blue-500/5"
             : "w-56 bg-white/[0.03] border-white/[0.06] hover:bg-white/[0.05] hover:border-white/10"

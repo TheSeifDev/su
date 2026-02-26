@@ -57,7 +57,7 @@ const MobileNav = () => {
                 <Hexagon size={22} fill="currentColor" className="text-white" />
               </div>
               <h1 className="text-xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
-                Edux
+                TADs
               </h1>
             </div>
             <button
@@ -99,7 +99,7 @@ const MobileNav = () => {
         </div>
 
         <div className="mb-4 rounded-xl bg-white/[0.02] p-4 border border-white/[0.04]">
-          <p className="text-[10px] text-zinc-700 text-center font-medium tracking-wider uppercase">© {new Date().getFullYear()} Edux</p>
+          <p className="text-[10px] text-zinc-700 text-center font-medium tracking-wider uppercase">© {new Date().getFullYear()} TADs</p>
         </div>
       </aside>
     </div>

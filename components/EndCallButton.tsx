@@ -4,6 +4,7 @@ import { useCall, useCallStateHooks } from '@stream-io/video-react-sdk'
 import React from 'react'
 import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
+import { PhoneOff } from 'lucide-react';
 
 const EndCallButton = () => {
   const call = useCall();
@@ -21,8 +22,9 @@ const EndCallButton = () => {
       await call.endCall();
       router.push('/')
     }}
-      className='rounded-full bg-red-600 px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-red-500 hover:shadow-lg hover:shadow-red-500/25 active:scale-95'>
-      End call for everyone
+      className='flex items-center gap-2 rounded-full bg-red-600 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white transition-all duration-200 hover:bg-red-500 hover:shadow-[0_0_20px_-3px_rgba(239,68,68,0.4)] active:scale-[0.95]'>
+      <PhoneOff size={16} />
+      <span className="hidden sm:inline">End Call</span>
     </Button>
   )
 }
