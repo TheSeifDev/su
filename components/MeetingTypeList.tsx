@@ -63,6 +63,7 @@ const MeetingTypeList = () => {
           custom: {
             description,
           },
+          members: [{ user_id: user.id, role: 'host' }]
         },
       });
 

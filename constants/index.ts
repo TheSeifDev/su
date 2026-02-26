@@ -29,9 +29,9 @@ export const sidebarLinks = [
 ];
 
 export const avatarImages = [
-  {icon: User},
-  {icon: User},
-  {icon: User},
-  {icon: User},
-  {icon: User},
+  { icon: User },
+  { icon: User },
+  { icon: User },
+  { icon: User },
+  { icon: User },
 ];

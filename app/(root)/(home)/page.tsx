@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import MeetingTypeList from '@/components/MeetingLayout/MeetingTypeList';
+import MeetingTypeList from '@/components/MeetingTypeList';
 
 const Home = () => {
   const [now, setNow] = useState(new Date());

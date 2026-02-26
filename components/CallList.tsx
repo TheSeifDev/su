@@ -1,15 +1,18 @@
-'use client'
+'use client';
 
-import { useGetCalls } from '@/hooks/useGetCalls'
-import { Call, CallReactionEvent, CallRecording } from '@stream-io/video-react-sdk';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { Call, CallRecording } from '@stream-io/video-react-sdk';
+import { useGetCalls } from '@/hooks/useGetCalls';
 import MeetingCard from './MeetingCard';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+// 1. Import your desired icons from lucide-react
+import { Loader2, History, Calendar, Video, Play } from 'lucide-react';
 
 const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
-  const { endedCalls, upcomingCalls, callRecordings, isLoading } = useGetCalls();
   const router = useRouter();
-  const [recordings, setRecordings] = useState<CallReactionEvent[]>([])
+  const { endedCalls, upcomingCalls, callRecordings, isLoading } =
+    useGetCalls();
+  const [recordings, setRecordings] = useState<CallRecording[]>([]);
 
   const getCalls = () => {
     switch (type) {
@@ -22,33 +25,88 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
       default:
         return [];
     }
-  }
+  };
 
   const getNoCallsMessage = () => {
     switch (type) {
       case 'ended':
-        return 'No Previos Calls';
-      case 'recordings':
-        return "No Recordings";
+        return 'No Previous Calls';
       case 'upcoming':
         return 'No Upcoming Calls';
+      case 'recordings':
+        return 'No Recordings';
       default:
         return '';
     }
-  }
+  };
+
+  useEffect(() => {
+    const fetchRecordings = async () => {
+      const callData = await Promise.all(
+        callRecordings?.map((meeting) => meeting.queryRecordings()) ?? [],
+      );
+
+      const recordings = callData
+        .filter((call) => call.recordings.length > 0)
+        .flatMap((call) => call.recordings);
+
+      setRecordings(recordings);
+    };
+
+    if (type === 'recordings') {
+      fetchRecordings();
+    }
+  }, [type, callRecordings]);
+
+  if (isLoading) return <Loader2 className="animate-spin" />;
 
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
 
   return (
-    <div className='grid grid-cols-1 gap-5 xl:grid-cols-2'>
-      {calls && calls.length > 0 ? calls.map((meeting: Call | CallRecording) => (
-        <MeetingCard />
-      )) : (
-        <h1>{noCallsMessage}</h1>
+    <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+      {calls && calls.length > 0 ? (
+        calls.map((meeting: Call | CallRecording) => (
+          <MeetingCard
+            key={(meeting as Call).id}
+            // 2. Pass the Lucide component reference directly
+            icon={
+              type === 'ended'
+                ? History
+                : type === 'upcoming'
+                  ? Calendar
+                  : Video
+            }
+            title={
+              (meeting as Call).state?.custom?.description ||
+              (meeting as CallRecording).filename?.substring(0, 20) ||
+              'No Description'
+            }
+            date={
+              (meeting as Call).state?.startsAt?.toLocaleString() ||
+              (meeting as CallRecording).start_time?.toLocaleString()
+            }
+            isPreviousMeeting={type === 'ended'}
+            link={
+              type === 'recordings'
+                ? (meeting as CallRecording).url
+                : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`
+            }
+            // 3. Pass the Lucide Play component for the button
+            buttonIcon1={type === 'recordings' ? Play : undefined}
+            buttonText={type === 'recordings' ? 'Play' : 'Start'}
+            handleClick={
+              type === 'recordings'
+                ? () => router.push(`${(meeting as CallRecording).url}`)
+                : () => router.push(`/meeting/${(meeting as Call).id}`)
+            }
+          />
+        ))
+      ) : (
+        <h1 className="text-2xl font-bold text-white">{noCallsMessage}</h1>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CallList
+export default CallList;
